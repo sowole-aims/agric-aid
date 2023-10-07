@@ -1,0 +1,79 @@
+<!-- chatbot.html -->
+{% extends "base.html" %}
+{% block content %}
+<link href="{{ url_for('static',filename='css/materialize.min.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+<div class="container">
+    <div id="hero" class="container">
+    <h1>AgricAid: AI-Powered Virtual Assistant</h1>
+  
+    <p>Welcome, farmer! Get real-time advice and recommendations based on corn/maize's disease classification result.</p>
+    <div id="chatbox">
+        <div id="messages"></div>
+        <textarea id="userInput" placeholder="Type your message..."></textarea>
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+    <div class="container">
+        <br>
+
+        <br>
+        
+    <p> Want to do another prediction on corn or maize leaf disease? <a href="{{ url_for('index') }}">Go back!</a>  </p>
+</div>
+</div>
+
+<script>
+    function sendMessage() {
+        const userInput = document.getElementById('userInput');
+        const messagesDiv = document.getElementById('messages');
+        // Add user message to the chat
+        messagesDiv.innerHTML += `<div class='user-message'>${userInput.value}</div>`;
+        
+        // Send the message to the backend (to communicate with GPT-3.5), and get the response
+        fetch('/agricaidbot', {    // Updated the endpoint to agricaidbot
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({message: userInput.value})
+        }).then(response => response.json()).then(data => {
+            // Add the assistant's response to the chat
+            messagesDiv.innerHTML += `<div class='assistant-message'>${data.response}</div>`;
+        });
+        
+        // Clear the user input
+        userInput.value = '';
+    }
+</script>
+
+<style>
+    #chatbox {
+        border: 1px solid #ddd;
+        padding: 20px;
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    #userInput {
+        width: 90%;
+        padding: 10px;
+    }
+
+    .user-message, .assistant-message {
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .user-message {
+        background-color: #f0f0f0;
+    }
+
+    .assistant-message {
+        background-color: #4CAF50;
+        color: white;
+    }
+</style>
+{% endblock content %}
+
+

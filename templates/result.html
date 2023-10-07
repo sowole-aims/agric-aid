@@ -1,0 +1,17 @@
+<!-- result.html -->
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h2>Prediction Result</h2>
+    <p><strong>Class:</strong> {{ predicted_class }}</p>
+    <p><strong>Confidence:</strong> {{ confidence }}%</p>
+    
+    <p>Need more guidance on this prediction? <a href="{{ url_for('agricaid') }}">Consult AgridAid, our AI-Powered Virtual Assistant</a></p>
+    <br>
+
+ 
+    
+    <p> Want to do another prediction on corn or maize leaf disease? <a href="{{ url_for('index') }}">Go back!</a>  </p>
+</div>
+{% endblock content %}
+

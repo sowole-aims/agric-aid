@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% set active_page = "index" %}
+{% block content %}
+<link href="{{ url_for('static',filename='css/materialize.min.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+<div class="container">
+  <div id="hero" class="container">
+   <h1>Corn and Maize Disease Prediction</h1>
+   <p>Upload an image of corn or maize leaf to predict the disease</p>
+   <div id="container" class="container">
+     <form action="/predict" method="POST" enctype="multipart/form-data">
+       <input type="file" name="file" accept="image/*" required>
+       <button class="btn btn-primary btn-outline btn-md" type="submit" name="predict">Predict</button>
+     </form>
+     {% if result %}
+     <p><strong>Prediction: {{result}}</strong></p>
+     {% endif %}
+   </div>
+  </div>
+</div>
+{% endblock content %}
+
