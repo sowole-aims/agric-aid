@@ -51,7 +51,7 @@ def predict():
 # Configure OpenAI API
 def configure_openai_api():
     
-    openai.api_key = "OPENAI_API_KEY"
+    openai.api_key =  "OPENAI_API_KEY"
 
 configure_openai_api()
 
