@@ -2,9 +2,7 @@
 
 This application aids farmers in diagnosing diseases affecting corn and maize. It utilizes a Deep Learning model for disease classification and provides real-time recommendations via an AI-powered chatbot, the AgricAid bot, which uses OpenAI's GPT-3.5 API.
 
-![App Screenshot 1](https://github.com/sowole-aims/agric-aid/blob/main/screenshot/agricaid.png "Corn/Maize Disease Classification")
 
-![App Screenshot 2](https://github.com/sowole-aims/agric-aid/blob/main/screenshot/agricaid1.png "AgricAid Bot")  
 
 ### Features
 
@@ -75,3 +73,13 @@ This project is licensed under the [MIT License](https://github.com/sowole-aims/
 - OpenAI for GPT-3.5 models.
 - The team behind OpenCV for image processing.
 - Keras and TensorFlow teams for deep learning capabilities.
+
+### Screenshots from Application
+
+![App Screenshot 1](https://github.com/sowole-aims/agric-aid/blob/main/screenshot/agricaid2.png "Home Page")
+
+![App Screenshot 2](https://github.com/sowole-aims/agric-aid/blob/main/screenshot/agricaid3.png "AgricAid Bot")
+
+![App Screenshot 1](https://github.com/sowole-aims/agric-aid/blob/main/screenshot/agricaid.png "Corn/Maize Disease Classification")
+
+![App Screenshot 2](https://github.com/sowole-aims/agric-aid/blob/main/screenshot/agricaid1.png "AgricAid Bot in Action")  
